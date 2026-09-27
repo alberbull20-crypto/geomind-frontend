@@ -1,0 +1,28 @@
+<div class="page-shell">
+  <app-sidebar />
+
+  <div class="page-main">
+    <app-topbar />
+
+    <div class="page-content">
+      <h1 class="page-title">History</h1>
+      <p class="page-subtitle">Past queries run in this session.</p>
+
+      <div class="entry-list">
+        @for (entry of entries; track entry.id) {
+          <div class="entry-card">
+            <div class="entry-main">
+              <p class="entry-query">{{ entry.query }}</p>
+              <span class="entry-time">{{ entry.timestamp }}</span>
+            </div>
+            <div class="entry-stats">
+              <span>{{ entry.totalFeatures }} areas analyzed</span>
+              <span class="dot">·</span>
+              <span>{{ entry.highNeedAreas }} high-need</span>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

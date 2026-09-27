@@ -1,1 +1,71 @@
-/* You can add global styles to this file, and also import other style files */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-canvas);
+  color: var(--text-primary);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+:root {
+  --bg-canvas: #0b0f14;
+  --bg-panel: #10151b;
+  --bg-elevated: #171e26;
+  --border: #232b34;
+  --border-strong: #2e3944;
+
+  --text-primary: #e7ebef;
+  --text-muted: #7c8894;
+  --text-faint: #4d5761;
+
+  --accent: #4a7fa5;
+  --accent-hover: #5d93ba;
+  --accent-wash: rgba(74, 127, 165, 0.12);
+
+  --data-high: #bf5b34;
+  --data-mid: #c9973e;
+  --data-low: #5e8c74;
+
+  --radius-panel: 10px;
+  --radius-control: 6px;
+
+  --font-mono: 'IBM Plex Mono', 'SFMono-Regular', Consolas, monospace;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+input {
+  font-family: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+a:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+::selection {
+  background: var(--accent-wash);
+}

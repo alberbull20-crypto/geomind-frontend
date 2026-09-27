@@ -1,0 +1,22 @@
+<div class="page-shell">
+  <app-sidebar />
+
+  <div class="page-main">
+    <app-topbar />
+
+    <div class="page-content">
+      <h1 class="page-title">Insights</h1>
+      <p class="page-subtitle">AI-generated findings from past analyses.</p>
+
+      <div class="insight-list">
+        @for (item of insights; track item.id) {
+          <div class="insight-card">
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.summary }}</p>
+            <span class="insight-date">{{ item.date }}</span>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="workspace-shell">
+  <app-sidebar />
+
+  <div class="workspace-main">
+    <app-topbar />
+
+    <div class="workspace-content">
+      <div class="results-row">
+        <div class="map-area">
+          <app-map [geojson]="result()?.geojson ?? null" />
+
+          @if (isAnalyzing()) {
+            <app-analysis-overlay [activeStep]="analysisStep()" [progress]="progress()" />
+          }
+        </div>
+
+        @if (result(); as r) {
+          <app-insight-panel [result]="r" />
+        }
+      </div>
+
+      <div class="query-panel">
+        <label class="query-label" for="query-input">Ask GeoMind</label>
+        <div class="query-row">
+          <input
+            id="query-input"
+            type="text"
+            class="query-input"
+            placeholder="Which areas have limited healthcare access in Nairobi?"
+            [value]="queryText()"
+            (input)="setQuery($any($event.target).value)"
+            (keyup.enter)="onAnalyze()"
+          />
+          <button class="analyze-btn" (click)="onAnalyze()" [disabled]="isAnalyzing()">
+            {{ isAnalyzing() ? 'Analyzing...' : 'Analyze' }}
+          </button>
+        </div>
+
+        <div class="suggested-row">
+          @for (q of suggestedQuestions; track q) {
+            <button class="suggested-pill" (click)="setQuery(q)">{{ q }}</button>
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

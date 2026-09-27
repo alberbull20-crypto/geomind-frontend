@@ -1,0 +1,26 @@
+<div class="page-shell">
+  <app-sidebar />
+
+  <div class="page-main">
+    <app-topbar />
+
+    <div class="page-content">
+      <h1 class="page-title">Data</h1>
+      <p class="page-subtitle">Datasets powering the current demo area.</p>
+
+      <div class="dataset-grid">
+        @for (dataset of datasets; track dataset.id) {
+          <div class="dataset-card">
+            <h3>{{ dataset.name }}</h3>
+            <p class="dataset-source">{{ dataset.source }}</p>
+            <div class="dataset-meta">
+              <span class="meta-tag">{{ dataset.format }}</span>
+              <span class="meta-tag">{{ dataset.coverage }}</span>
+            </div>
+            <p class="dataset-count">{{ dataset.recordCount }}</p>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</div>
